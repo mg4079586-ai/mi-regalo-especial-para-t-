@@ -31,7 +31,7 @@
         💚 Dale play, mi niño 💚
     </button>
 
-    <!-- El reproductor busca el archivo musica.mp3 que ya subiste -->
+    <!-- El reproductor busca el archivo musica.mp3 que ya tienes en tu repo -->
     <audio id="cancion" loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
@@ -39,12 +39,16 @@
     <script>
         function empezarRegalo() {
             var audio = document.getElementById("cancion");
-            audio.play();
             
-            // Espera 2 segundos para que escuche el inicio del Fercho y luego abre Canva
+            // Intenta reproducir el audio local
+            audio.play().catch(function(error) {
+                console.log("El audio local no pudo iniciar, pero el link de Canva también tiene música.");
+            });
+            
+            // Espera 3 segundos y abre el nuevo link de Canva en una pestaña nueva
             setTimeout(function(){
-                window.location.href = "https://unnuevoregalo.my.canva.site";
-            }, 2500);
+                window.open("https://www.canva.com/design/DAHEK9OhG2M/PhYSgHm92-PXVqxF_dON6g/watch?utm_content=DAHEK9OhG2M&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfa9a6aa282", "_blank");
+            }, 3000);
         }
     </script>
 </body>
